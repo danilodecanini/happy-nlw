@@ -34,7 +34,6 @@ Happy | Bring happy to the world
   <a href="#rocket-Technologies">Technologies</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#how-to-use">How to use</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#-how-to-contribute">How to contribute</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-backstage">Backstage</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#memo-license">License</a>
 </p>
 
@@ -62,11 +61,11 @@ From your command line:
 $ git clone https://github.com/danilodecanini/happy-nlw.git
 ```
 
-## Running the server
+## Running the backend
 
 ```bash
 # Go into directory server/
-$ cd server
+$ cd backend
 # Install dependencies
 $ npm install
 # Run the server
@@ -77,11 +76,9 @@ $ npm run dev
 
 ```bash
 # Go into directory server/
-$ cd server
-# Create the database
-$ npm knex-migrate
-# populating the database
-$ npm knex-seed
+$ cd backend
+# Create the database and run migrations
+$ npm run typeorm migrate:run
 ```
 
 ## Running the web
