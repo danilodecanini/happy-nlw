@@ -64,7 +64,7 @@ $ git clone https://github.com/danilodecanini/happy-nlw.git
 ## Running the backend
 
 ```bash
-# Go into directory server/
+# Go into directory backend/
 $ cd backend
 # Install dependencies
 $ npm install
@@ -75,7 +75,7 @@ $ npm run dev
 ## Creating the database
 
 ```bash
-# Go into directory server/
+# Go into directory backend/
 $ cd backend
 # Create the database and run migrations
 $ npm run typeorm migrate:run
