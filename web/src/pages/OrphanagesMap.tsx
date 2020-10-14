@@ -18,10 +18,30 @@ interface Orphanage {
 
 const OrphanagesMap: React.FC = () => {
   const [orphanages, setOrphanages] = useState<Orphanage[]>([]);
+  const [currentPosition, setCurrentPosition] = useState({ latitude: 0, longitude: 0});
+
   useEffect(() => {
     api.get('orphanages').then(response => {
       setOrphanages(response.data);
     });
+
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0
+    };
+
+    function success(pos: any) {
+      var crd = pos.coords;
+
+      setCurrentPosition({ latitude: crd.latitude, longitude: crd.longitude });
+    };
+    
+    function error(err: any) {
+      console.warn('ERROR(' + err.code + '): ' + err.message);
+    };
+
+    navigator.geolocation.getCurrentPosition(success, error, options);
 
   }, []);
 
@@ -42,8 +62,8 @@ const OrphanagesMap: React.FC = () => {
       </aside>
 
       <Map 
-        center={[-23.5230991,-51.6850075]} 
-        zoom={15}
+        center={[currentPosition.latitude, currentPosition.longitude]} 
+        zoom={14}
         style={{ width: '100%', height: '100%' }}
       >
         <TileLayer url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`} />
