@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
+=======
+import React from 'react';
+>>>>>>> ff80ef6cd2fc0fcdb1f33d37a0aed897673e7118
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
 import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 import { Feather } from '@expo/vector-icons';
@@ -6,6 +10,7 @@ import { Feather } from '@expo/vector-icons';
 import mapMarker from '../images/map-marker.png';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
+<<<<<<< HEAD
 
 import api from '../services/api';
 
@@ -15,6 +20,8 @@ interface OrphanageItem {
   latitude: number,
   longitude: number,
 }
+=======
+>>>>>>> ff80ef6cd2fc0fcdb1f33d37a0aed897673e7118
 
 export default function OrphanagesMap(){
   const [orphanages, setOrphanages] = useState<OrphanageItem[]>([]);
@@ -28,6 +35,9 @@ export default function OrphanagesMap(){
 
   function handleNavigateToOrphanageDetails(id: number){
     navigation.navigate('OrphanageDetails', { id });
+  }
+  function handleNavigateToCreateOrphanage(){
+    navigation.navigate('SelectMapPosition');
   }
   function handleNavigateToCreateOrphanage(){
     navigation.navigate('SelectMapPosition');
