@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ScrollView, View, StyleSheet, Switch, Text, TextInput, TouchableOpacity } from 'react-native';
+import { ScrollView, View, StyleSheet, Switch, Text, TextInput, TouchableOpacity, Image } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation, useRoute } from '@react-navigation/native';
@@ -99,7 +99,6 @@ export default function OrphanageData() {
       /> */}
 
       <Text style={styles.label}>Fotos</Text>
-
       <View style={styles.uploadedImagesContainer}>
         {images.map(image => {
           return (
